@@ -20,4 +20,4 @@ Diese Seite auf der Plugin-Einstellungsseite auswählen und speichern.
 ```html
 [ticket_form/]
 ```
-lässt sich um den Parameter type="" erweitern: bug, task, feature
+lässt sich um den Parameter **type=""** erweitern: `bug`, `task`, `feature`
