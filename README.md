@@ -23,9 +23,16 @@ Diese Seite auf der Plugin-Einstellungsseite auswählen und speichern.
 lässt sich um den Parameter **type=""** erweitern: `bug`, `task`, `feature`
 
 
+Shortcodes
+------------
+
++ **Ticketverlinkung:** `@#{ID}`
+
+
 Changelog
 ------------
 **0.5**
 + Shortcodes für Ticketformular, Ticketliste, Ticketeinzelansicht
 + Einstellungsseite & Ticketübersichtsseiten
 + Dashboard-Widgets
++ Ticketverlinkung in Seiten, Beiträgen, Tickets, Ticketkommentaren & bbPress-Foren-Beiträgen
