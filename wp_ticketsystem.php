@@ -42,6 +42,7 @@ class wp_ticketsystem {
         }
         add_action( 'admin_bar_menu', array( $this, 'add_toolbar_link_options_page' ), 999 );
         $this->load_shortcode();
+        $this->load_filter();
     }
 
     /**
@@ -123,6 +124,15 @@ class wp_ticketsystem {
         add_shortcode( 'ticket_show', array( 'wp_ticketsystem_show_shortcode', 'show_tickets_func' ) );
         require_once( $this->plugin_dir.'lib/single_shortcode.php' );
         add_shortcode( 'ticket_single', array( 'wp_ticketsystem_single_shortcode', 'single_ticket_func' ) );
+    }
+
+    /**
+     * load Content-Filter
+     */
+    public function load_filter() {
+        require_once( $this->plugin_dir.'lib/content_filter.php' );
+        add_filter( 'the_content', array( 'wp_ticketsystem_filter_content', 'filter_content_func' ) );
+        add_filter( 'bp_get_the_topic_post_content', array( 'wp_ticketsystem_filter_content', 'filter_content_func' ) );
     }
 }
 
