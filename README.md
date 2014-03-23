@@ -11,7 +11,8 @@ Eine extra Seite anlegen auf welcher die einzelnen Tickets angezeigt werden soll
 ```
 Diese Seite auf der Plugin-Einstellungsseite auswählen und speichern.
 
-!Weitere Shortcodes:
+**Weitere Shortcodes:**
+
 zur Anzeige des Ticket-Formulars:
 ```html
 [ticket_form/]
