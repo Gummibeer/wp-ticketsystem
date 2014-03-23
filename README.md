@@ -21,3 +21,11 @@ Diese Seite auf der Plugin-Einstellungsseite auswählen und speichern.
 [ticket_form/]
 ```
 lässt sich um den Parameter **type=""** erweitern: `bug`, `task`, `feature`
+
+
+Changelog
+------------
+**0.5**
++ Shortcodes für Ticketformular, Ticketliste, Ticketeinzelansicht
++ Einstellungsseite & Ticketübersichtsseiten
++ Dashboard-Widgets
