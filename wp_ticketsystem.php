@@ -815,6 +815,41 @@ class wp_ticketsystem {
     ?>
 
     <?php
+    if( !empty($_POST[$this->plugin_slug.'_duplicate']) && !empty($_POST[$this->plugin_slug.'_original']) ) {
+        $original = $_POST[$this->plugin_slug.'_original'];
+        $duplicate = $_POST[$this->plugin_slug.'_duplicate'];
+
+        $data = array();
+        $post_error = false;
+
+        if( isset($original) ) {
+            $data['original'] = $this->cleanup_data( $original, 'int' );
+        } else {
+            $post_error = true;
+        }
+
+        if( isset($duplicate) ) {
+            $data['duplicate'] = $this->cleanup_data( $duplicate, 'int' );
+        } else {
+            $post_error = true;
+        }
+
+        if(!$post_error) {
+            $success = $wpdb->update( $this->table_name, array( 'parent' => $data['original'] ), array( 'id' => $data['duplicate'] ), array( '%d' ), array( '%d' ) );
+            $success = $wpdb->update( $this->table_name, array( 'parent' => $data['original'] ), array( 'parent' => $data['duplicate'] ), array( '%d' ), array( '%d' ) );
+
+            if($success !== false) {
+                echo $this->return_admin_notice( '<strong>Erfolg:</strong> Änderungen erfolgreich übernommen.', 'updated' );
+            } else {
+                echo $this->return_admin_notice( '<strong>Fehler:</strong> Leider ist ein Fehler aufgetreten.', 'error' );
+            }
+        } else {
+            echo $this->return_admin_notice( '<strong>Fehler:</strong> Leider waren deine Eingaben unvollständig - bitte alle benötigten Felder ausfüllen.', 'error' );
+        }
+    }
+    ?>
+
+    <?php
     $sql = strval( 'SELECT * FROM '.$this->table_name.' WHERE id = "'.$tid.'"' );
     $result = $wpdb->get_row( $sql );
     $types = $this->unserialize_data( get_option($this->plugin_slug.'_types') );
@@ -874,7 +909,7 @@ class wp_ticketsystem {
 
                                         $comments_out .= '<li>';
                                         $comments_out .= '#'.$id.' - '.$comment->name.' ('.date( 'd.m.Y', strtotime($comment->creationdate) ).')';
-                                        $comments_out .= ' | <a href="?page='.$this->plugin_slug.'_options_page&tab=edit&tid='.$result->id.'" title="Kommentar bearbeiten">bearbeiten</a>';
+                                        $comments_out .= ' | <a href="?page='.$this->plugin_slug.'_options_page&tab=edit&tid='.$comment->id.'" title="Kommentar bearbeiten">bearbeiten</a>';
                                         $comments_out .= '<br />';
                                         $comments_out .= $this->shorten_string( $comment->content, 100 );
                                         $comments_out .= '</li>';
@@ -945,9 +980,14 @@ class wp_ticketsystem {
                                     <strong>Duplikat von:</strong>
                                 </p>
                                 <form action="" method="post">
-                                    <input type="text" name="<?php echo $this->plugin_slug; ?>_original" placeholder="Original Ticket-ID" value="" />
+                                    <input type="text" name="<?php echo $this->plugin_slug; ?>_original" placeholder="Original Ticket-ID (#0 um Verbindung zu lösen)" value="" />
                                     <input type="hidden" name="<?php echo $this->plugin_slug; ?>_duplicate" value="<?php echo $result->id; ?>" />
-                                    <input id="submit" class="button" type="submit" value="Duplikate zusammenführen" name="submit" />
+                                    <p>
+                                        Das Ticket und all seine Kommentare werden in den Kommentar-Stream des Original-Tickets eingefügt.
+                                    </p>
+                                    <p class="submit">
+                                        <input id="submit" class="button" type="submit" value="Duplikate zusammenführen" name="submit" />
+                                    </p>
                                 </form>
 
                             </div>
@@ -1001,7 +1041,7 @@ class wp_ticketsystem {
     /**
      * Output-Handling
      */
-    private function return_admin_notice( $text, $class ) {
+    private function return_admin_notice( $text = '', $class = 'updated' ) {
         $out = '';
         $out .= '<div class="'.$class.'"><p>';
         $out .= $text;
@@ -1009,9 +1049,9 @@ class wp_ticketsystem {
         return $out;
     }
 
-    private function shorten_string( $text, $length ) {
+    private function shorten_string( $text = '', $length = 200, $more = '[...]' ) {
         $str_pos = strpos( $text, ' ', $length ) ? strpos( $text, ' ', $length ) : strlen( $text );
-        $str_more = strpos( $text, ' ', $length ) ? '[...]' : '';
+        $str_more = strpos( $text, ' ', $length ) ? $more : '';
         return str_replace( '\r\n', ' ', substr( $text, 0, $str_pos ) ).' '.$str_more;
     }
 
@@ -1020,7 +1060,7 @@ class wp_ticketsystem {
     /**
      * Data-Handling
      */
-    private function serialize_data( $datas ) {
+    private function serialize_data( $datas = array() ) {
         $serialized = array();
         foreach( $datas as $id => $data ) {
             $serialized[$id] = maybe_serialize($data);
@@ -1029,7 +1069,7 @@ class wp_ticketsystem {
         return $serialized;
     }
 
-    private function unserialize_data( $datas ) {
+    private function unserialize_data( $datas = '' ) {
         $unserialized = maybe_unserialize($datas);
         foreach( $unserialized as $id => $data ) {
             $unserialized[$id] = maybe_unserialize($data);
@@ -1037,7 +1077,7 @@ class wp_ticketsystem {
         return $unserialized;
     }
 
-    private function cleanup_data( $data, $type ) {
+    private function cleanup_data( $data, $type = '' ) {
         $temp = '';
         switch($type) {
             case 'name':
