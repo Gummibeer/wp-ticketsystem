@@ -1,4 +1,4 @@
-wp-ticketsystem
+Wordpress Ticketsystem
 ===============
 
 Installation
