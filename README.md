@@ -34,7 +34,7 @@ Changelog
 + E-Mail-Input für angemeldete Nutzer ausblenden
 + Einstellung Kommentare nur für angemeldete Nutzer sichtbar
 + [BUG] geschriebener Kommentar erst nach reload sichtbar
-++ Comment-Object vor db-Input erzeugt
+-> Comment-Object vor db-Input erzeugt
 
 **1.0 stable**
 + eigene Tickettypen erstellen
