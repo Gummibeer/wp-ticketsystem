@@ -18,11 +18,24 @@ Shortcodes
 + **Ticketformular:** `[wp_ticketsystem_form excl="{TypeID}" /]`
 + **Ticketliste offener Tickets:** `[wp_ticketsystem_list excl="{TypeID}" /]`
 + **Einzelticket:** `[wp_ticketsystem_single /]`
-+ **Ticketverlinkung:** `@#{TicketID}` (in Seiten, Beiträgen, Tickets, Ticketkommentaren & bbPress-Foren-Beiträgen)
++ **Ticketverlinkung:** `@#{TicketID}` (in Seiten, Blog-Beiträgen, Tickets, Ticket-Kommentaren & bbPress-Foren-Beiträgen)
+
 
 
 Changelog
 ------------
+**2.0 scheduled**
++ geschlossene Tickets im Frontend anzeigen
++ Ticketverlinkung in Blog-Kommentaren
++ E-Mail-Benachrichtigung bei neuen Tickets / Kommentaren inkl. Einstellung
++ Bearbeiter (Wordpress-User) einstellen inkl. E-Mail-Benachrichtigung
++ Fortschritt für Ticket angeben
++ Shortcode für Tickettypen mit Beschreibung
++ E-Mail-Input für angemeldete Nutzer ausblenden
++ Einstellung Kommentare nur für angemeldete Nutzer sichtbar
++ [BUG] geschriebener Kommentar erst nach reload sichtbar
+++ Comment-Object vor db-Input erzeugt
+
 **1.0 stable**
 + eigene Tickettypen erstellen
 + Tickettypen an- und abschalten
@@ -34,7 +47,6 @@ Changelog
 + Dashboard-Widget vereinfacht
 + Shortcodes angepasst
 + Einstellungsmöglichkeiten für Shortcodes
-+ 
 
 **0.5 alpha**
 + Shortcodes für Ticketformular, Ticketliste, Ticketeinzelansicht
