@@ -16,8 +16,8 @@ Diese Seite auf der Plugin-Einstellungsseite auswählen und speichern.
 Shortcodes
 ------------
 + **Ticketformular:** `[wp_ticketsystem_form excl="{TypeID}" /]`
-+ **Ticketformular:** `[wp_ticketsystem_list excl="{TypeID}" /]`
-+ **Ticketformular:** `[wp_ticketsystem_single /]`
++ **Ticketliste offener Tickets:** `[wp_ticketsystem_list excl="{TypeID}" /]`
++ **Einzelticket:** `[wp_ticketsystem_single /]`
 + **Ticketverlinkung:** `@#{TicketID}` (in Seiten, Beiträgen, Tickets, Ticketkommentaren & bbPress-Foren-Beiträgen)
 
 
