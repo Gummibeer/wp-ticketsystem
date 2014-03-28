@@ -1,36 +1,32 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-
   <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Wp-ticketsystem : Ein Wordpress-Plugin zur Ticketverwaltung - Bug-Tracking, Support &amp; Co. | Bootstrap3 HTML &amp; CSS-Klassen" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Wp-ticketsystem by Gummibeer</title>
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-    <title>Wp-ticketsystem</title>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
   </head>
-
   <body>
-
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/Gummibeer/wp-ticketsystem">View on GitHub</a>
-
-          <h1 id="project_title">Wp-ticketsystem</h1>
-          <h2 id="project_tagline">Ein Wordpress-Plugin zur Ticketverwaltung - Bug-Tracking, Support &amp; Co. | Bootstrap3 HTML &amp; CSS-Klassen</h2>
-
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/Gummibeer/wp-ticketsystem/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/Gummibeer/wp-ticketsystem/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
+    <div class="wrapper">
+      <header>
+        <h1>Wp-ticketsystem</h1>
+        <p>Ein Wordpress-Plugin zur Ticketverwaltung - Bug-Tracking, Support &amp; Co. | Bootstrap3 HTML &amp; CSS-Klassen</p>
+        <p class="view"><a href="https://github.com/Gummibeer/wp-ticketsystem">View the Project on GitHub <small>Gummibeer/wp-ticketsystem</small></a></p>
+        <ul>
+          <li><a href="https://github.com/Gummibeer/wp-ticketsystem/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/Gummibeer/wp-ticketsystem/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/Gummibeer/wp-ticketsystem">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
         <h1>
 <a name="wp-ticketsystem" class="anchor" href="#wp-ticketsystem"><span class="octicon octicon-link"></span></a>wp-ticketsystem</h1>
 
@@ -41,34 +37,56 @@
 
 <p>Eine extra Seite anlegen auf welcher die einzelnen Tickets angezeigt werden sollen, in den Inhaltsbereich folgenden Shortcode eintragen:</p>
 
-<div class="highlight highlight-html"><pre>[ticket_single/]
+<div class="highlight highlight-html"><pre>[wp_ticketsystem_single /]
 </pre></div>
 
 <p>Diese Seite auf der Plugin-Einstellungsseite auswählen und speichern.</p>
-
-<p><strong>zur Anzeige des Ticket-Formulars:</strong></p>
-
-<div class="highlight highlight-html"><pre>[ticket_form/]
-</pre></div>
-
-<p><strong>Liste aller nicht abgeschlossenen Tickets:</strong></p>
-
-<div class="highlight highlight-html"><pre>[ticket_form/]
-</pre></div>
-
-<p>lässt sich um den Parameter <strong>type=""</strong> erweitern: <code>bug</code>, <code>task</code>, <code>feature</code></p>
 
 <h2>
 <a name="shortcodes" class="anchor" href="#shortcodes"><span class="octicon octicon-link"></span></a>Shortcodes</h2>
 
 <ul>
 <li>
-<strong>Ticketverlinkung:</strong> <code>@#{ID}</code>
+<strong>Ticketformular:</strong> <code>[wp_ticketsystem_form excl="{TypeID}" /]</code>
 </li>
+<li>
+<strong>Ticketliste offener Tickets:</strong> <code>[wp_ticketsystem_list excl="{TypeID}" /]</code>
+</li>
+<li>
+<strong>Einzelticket:</strong> <code>[wp_ticketsystem_single /]</code>
+</li>
+<li>
+<strong>Ticketverlinkung:</strong> <code>@#{TicketID}</code> (in Seiten, Blog-Beiträgen, Tickets, Ticket-Kommentaren &amp; bbPress-Foren-Beiträgen)</li>
 </ul><h2>
 <a name="changelog" class="anchor" href="#changelog"><span class="octicon octicon-link"></span></a>Changelog</h2>
 
-<p><strong>0.5</strong></p>
+<p><strong>2.0 scheduled</strong></p>
+
+<ul>
+<li>geschlossene Tickets im Frontend anzeigen</li>
+<li>Ticketverlinkung in Blog-Kommentaren</li>
+<li>E-Mail-Benachrichtigung bei neuen Tickets / Kommentaren inkl. Einstellung</li>
+<li>Bearbeiter (Wordpress-User) einstellen inkl. E-Mail-Benachrichtigung</li>
+<li>Fortschritt für Ticket angeben</li>
+<li>Shortcode für Tickettypen mit Beschreibung</li>
+<li>E-Mail-Input für angemeldete Nutzer ausblenden</li>
+<li>Einstellung Kommentare nur für angemeldete Nutzer sichtbar</li>
+<li>[BUG] geschriebener Kommentar erst nach reload sichtbar
+-&gt; Comment-Object vor db-Input erzeugt</li>
+</ul><p><strong>1.0 stable</strong></p>
+
+<ul>
+<li>eigene Tickettypen erstellen</li>
+<li>Tickettypen an- und abschalten</li>
+<li>Ticket Sidebar-Widget</li>
+<li>neue Einstellungsmöglichkeiten im Backend</li>
+<li>Tickets bearbeiten</li>
+<li>Duplikate zusammenführen</li>
+<li>Kommentare zu extra Tickets machen</li>
+<li>Dashboard-Widget vereinfacht</li>
+<li>Shortcodes angepasst</li>
+<li>Einstellungsmöglichkeiten für Shortcodes</li>
+</ul><p><strong>0.5 alpha</strong></p>
 
 <ul>
 <li>Shortcodes für Ticketformular, Ticketliste, Ticketeinzelansicht</li>
@@ -78,16 +96,11 @@
 </ul>
       </section>
     </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Wp-ticketsystem maintained by <a href="https://github.com/Gummibeer">Gummibeer</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
+    <footer>
+      <p>Project maintained by <a href="https://github.com/Gummibeer">Gummibeer</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
     
-
   </body>
 </html>
