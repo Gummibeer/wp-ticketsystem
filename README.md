@@ -37,7 +37,7 @@ verwendete Software
 + [https://github.com/twbs/bootstrap](Bootstrap3)
 + [https://developers.google.com/chart](Google Charts)
 + [https://wordpress.org](Wordpress)
-
++ **geplant**
 + [http://www.google.com/recaptcha](reCaptcha)
 
 
