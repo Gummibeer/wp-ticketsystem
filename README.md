@@ -32,6 +32,16 @@ Shortcodes
 
 
 
+verwendete Software
+------------
++ [https://github.com/twbs/bootstrap](Bootstrap3)
++ [https://developers.google.com/chart](Google Charts)
++ [https://wordpress.org](Wordpress)
+
++ [http://www.google.com/recaptcha](reCaptcha)
+
+
+
 Changelog
 ------------
 **scheduled**
@@ -42,12 +52,12 @@ Changelog
 + E-Mail-Input für angemeldete Nutzer ausblenden
 + geschlossene Tickets im Frontend anzeigen
 + **1.2.0**
-+ Bootstrap3 in Plugin integrieren als Option
-+ Spamschutz (reCaptcha) Option
++ [https://github.com/twbs/bootstrap](Bootstrap3) in Plugin integrieren als Option
++ Spamschutz ([http://www.google.com/recaptcha](reCaptcha)) Option
 + Einstellung Ticket-Formular / Ticket-Kommentare nur für angemeldete Nutzer sichtbar
 + **1.3.0**
 + Priorität für Tickets festlegen
-+ Fortschritt für Ticket angeben
++ Fortschritt für Ticket angeben -> anhand von Ticketstatus
 + **1.4.0**
 + Shortcode für Tickettypen mit Beschreibung
 + **1.5.0**
