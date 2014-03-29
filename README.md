@@ -5,6 +5,7 @@ Inhaltsverzeichnis
 ------------
 + [Installation](#installation)
 + [Shortcodes](#shortcodes)
++ [verwendete Software](#verwendete-software)
 + [Changelog](#changelog)
 + [Autor](#autor)
 + [Copyright und Lizenz](#copyright-und-lizenz)
