@@ -35,11 +35,11 @@ Shortcodes
 
 verwendete Software
 ------------
-+ [https://github.com/twbs/bootstrap](Bootstrap3)
-+ [https://developers.google.com/chart](Google Charts)
-+ [https://wordpress.org](Wordpress)
++ [Bootstrap3](https://github.com/twbs/bootstrap)
++ [Google Charts](https://developers.google.com/chart)
++ [Wordpress](https://wordpress.org)
 + **geplant**
-+ [http://www.google.com/recaptcha](reCaptcha)
++ [reCaptcha](http://www.google.com/recaptcha)
 
 
 
@@ -53,8 +53,8 @@ Changelog
 + E-Mail-Input für angemeldete Nutzer ausblenden
 + geschlossene Tickets im Frontend anzeigen
 + **1.2.0**
-+ [https://github.com/twbs/bootstrap](Bootstrap3) in Plugin integrieren als Option
-+ Spamschutz ([http://www.google.com/recaptcha](reCaptcha)) Option
++ [Bootstrap3](https://github.com/twbs/bootstrap) in Plugin integrieren als Option
++ Spamschutz ([reCaptcha](http://www.google.com/recaptcha)) Option
 + Einstellung Ticket-Formular / Ticket-Kommentare nur für angemeldete Nutzer sichtbar
 + **1.3.0**
 + Priorität für Tickets festlegen
