@@ -27,7 +27,7 @@ Changelog
 **2.0 scheduled**
 + geschlossene Tickets im Frontend anzeigen
 + Ticketverlinkung in Blog-Kommentaren
-+ E-Mail-Benachrichtigung bei neuen Tickets / Kommentaren inkl. Einstellung
++ E-Mail-Benachrichtigung bei neuen Tickets / Kommentaren inkl. Einstellung (Admin)
 + Bearbeiter (Wordpress-User) einstellen inkl. E-Mail-Benachrichtigung
 + Fortschritt für Ticket angeben
 + Shortcode für Tickettypen mit Beschreibung
@@ -35,6 +35,10 @@ Changelog
 + Einstellung Kommentare nur für angemeldete Nutzer sichtbar
 + [BUG] geschriebener Kommentar erst nach reload sichtbar
 -> Comment-Object vor db-Input erzeugt
++ Paginator für Ticketliste & Ticketkommentare
++ Spamschutz (reCaptcha) Option
++ Bootstrap3 in Plugin integrieren als Option
++ E-Mail-Benachrichtigung bei neuen Kommentaren / Statusänderung (Member)
 
 **1.0 stable**
 + eigene Tickettypen erstellen
