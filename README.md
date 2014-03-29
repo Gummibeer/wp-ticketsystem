@@ -38,20 +38,25 @@ Changelog
 + **1.0.1**
 + [BUG] geschriebener Kommentar erst nach reload sichtbar -> Comment-Object vor db-Input erzeugt
 + Ticketverlinkung in Blog-Kommentaren
++ **1.1.0**
 + E-Mail-Input für angemeldete Nutzer ausblenden
 + geschlossene Tickets im Frontend anzeigen
-+ **1.1.0**
++ **1.2.0**
 + Bootstrap3 in Plugin integrieren als Option
 + Spamschutz (reCaptcha) Option
-+ Einstellung Kommentare nur für angemeldete Nutzer sichtbar
-+ Fortschritt für Ticket angeben
-+ **1.2.0**
-+ Shortcode für Tickettypen mit Beschreibung
++ Einstellung Ticket-Formular / Ticket-Kommentare nur für angemeldete Nutzer sichtbar
 + **1.3.0**
++ Priorität für Tickets festlegen
++ Fortschritt für Ticket angeben
++ **1.4.0**
++ Shortcode für Tickettypen mit Beschreibung
++ **1.5.0**
 + E-Mail-Benachrichtigung bei neuen Tickets / Kommentaren inkl. Einstellung (Admin)
 + E-Mail-Benachrichtigung bei neuen Kommentaren / Statusänderung (Member)
 + Bearbeiter (Wordpress-User) einstellen inkl. E-Mail-Benachrichtigung
 + Paginator für Ticketliste & Ticketkommentare
++ **1.6.0**
++ custom-CSS ermöglichen -> FE-inline-styles entfernen, CSS-Klassen in CSS generieren, vorausfüllen
 
 **1.0.0 stable**
 + eigene Tickettypen erstellen
