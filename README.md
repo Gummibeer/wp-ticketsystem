@@ -7,6 +7,7 @@ Inhaltsverzeichnis
 + [Shortcodes](#shortcodes)
 + [Changelog](#changelog)
 + [Autor](#autor)
++ [Copyright und Lizenz](#copyright-und-lizenz)
 
 
 
@@ -80,6 +81,6 @@ Autor
 
 
 
-Copyright and license
+Copyright und Lizenz
 ------------
 Copyright 2014 Tom Witkowski - Lizenz [GPL2](LICENSE).
