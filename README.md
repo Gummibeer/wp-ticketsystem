@@ -93,7 +93,7 @@ Autor
 ------------
 **Tom Witkowski**
 + https://github.com/Gummibeer
-+ https://www.facebook.com/tkwitkowski
++ https://facebook.com/tkwitkowski
 
 
 
