@@ -13,7 +13,7 @@ Inhaltsverzeichnis
 
 Installation
 ------------
-Plugin zip-Datei in den Wordpress-Plugin-Ordner entpacken und im Wordpress-Backend aktivieren.
+Plugin zip-Datei in den Wordpress-Plugin-Ordner entpacken, der Ordner muss `wp_ticketsystem heißen`. Danach das Plugin im Wordpress-Backend aktivieren.
 
 Eine extra Seite anlegen auf welcher die einzelnen Tickets angezeigt werden sollen, in den Inhaltsbereich folgenden Shortcode eintragen:
 ```html
@@ -83,4 +83,4 @@ Autor
 
 Copyright und Lizenz
 ------------
-Copyright 2014 Tom Witkowski - Lizenz [GPL2](LICENSE.txt).
+Copyright 2014 Tom Witkowski - Lizenz [GPL2](https://github.com/Gummibeer/wp-ticketsystem/blob/master/LICENSE.txt).
