@@ -1,6 +1,15 @@
 Wordpress Ticketsystem
 ===============
 
+Inhaltsverzeichnis
+------------
++ [Installation](#installation)
++ [Shortcodes](#shortcodes)
++ [Changelog](#changelog)
++ [Autor](#autor)
+
+
+
 Installation
 ------------
 Plugin zip-Datei in den Wordpress-Plugin-Ordner entpacken und im Wordpress-Backend aktivieren.
@@ -24,23 +33,26 @@ Shortcodes
 
 Changelog
 ------------
-**2.0 scheduled**
-+ geschlossene Tickets im Frontend anzeigen
+**scheduled**
++ **1.0.1**
++ [BUG] geschriebener Kommentar erst nach reload sichtbar -> Comment-Object vor db-Input erzeugt
 + Ticketverlinkung in Blog-Kommentaren
-+ E-Mail-Benachrichtigung bei neuen Tickets / Kommentaren inkl. Einstellung (Admin)
-+ Bearbeiter (Wordpress-User) einstellen inkl. E-Mail-Benachrichtigung
-+ Fortschritt für Ticket angeben
-+ Shortcode für Tickettypen mit Beschreibung
 + E-Mail-Input für angemeldete Nutzer ausblenden
-+ Einstellung Kommentare nur für angemeldete Nutzer sichtbar
-+ [BUG] geschriebener Kommentar erst nach reload sichtbar
--> Comment-Object vor db-Input erzeugt
-+ Paginator für Ticketliste & Ticketkommentare
-+ Spamschutz (reCaptcha) Option
++ geschlossene Tickets im Frontend anzeigen
++ **1.1.0**
 + Bootstrap3 in Plugin integrieren als Option
++ Spamschutz (reCaptcha) Option
++ Einstellung Kommentare nur für angemeldete Nutzer sichtbar
++ Fortschritt für Ticket angeben
++ **1.2.0**
++ Shortcode für Tickettypen mit Beschreibung
++ **1.3.0**
++ E-Mail-Benachrichtigung bei neuen Tickets / Kommentaren inkl. Einstellung (Admin)
 + E-Mail-Benachrichtigung bei neuen Kommentaren / Statusänderung (Member)
++ Bearbeiter (Wordpress-User) einstellen inkl. E-Mail-Benachrichtigung
++ Paginator für Ticketliste & Ticketkommentare
 
-**1.0 stable**
+**1.0.0 stable**
 + eigene Tickettypen erstellen
 + Tickettypen an- und abschalten
 + Ticket Sidebar-Widget
@@ -52,8 +64,22 @@ Changelog
 + Shortcodes angepasst
 + Einstellungsmöglichkeiten für Shortcodes
 
-**0.5 alpha**
+**0.5.0 alpha**
 + Shortcodes für Ticketformular, Ticketliste, Ticketeinzelansicht
 + Einstellungsseite & Ticketübersichtsseiten
 + Dashboard-Widgets
 + Ticketverlinkung in Seiten, Beiträgen, Tickets, Ticketkommentaren & bbPress-Foren-Beiträgen
+
+
+
+Autor
+------------
+**Tom Witkowski**
++ https://github.com/Gummibeer
++ https://www.facebook.com/tkwitkowski
+
+
+
+Copyright and license
+------------
+Copyright 2014 Tom Witkowski - Lizenz [GPL2](LICENSE).
