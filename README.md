@@ -83,4 +83,4 @@ Autor
 
 Copyright und Lizenz
 ------------
-Copyright 2014 Tom Witkowski - Lizenz [GPL2](LICENSE).
+Copyright 2014 Tom Witkowski - Lizenz [GPL2](LICENSE.txt).
