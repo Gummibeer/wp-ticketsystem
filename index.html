@@ -78,7 +78,15 @@
 </li>
 <li>
 <strong>Ticketverlinkung:</strong> <code>@#{TicketID}</code> (in Seiten, Blog-Beiträgen, Tickets, Ticket-Kommentaren &amp; bbPress-Foren-Beiträgen)</li>
-</ul><h2>
+<li>
+<strong>Ticketverlinkung</strong> in Themes oder Plugins durch php</li>
+</ul><div class="highlight highlight-php"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="k">global</span> <span class="nv">$wp_ticketsystem</span><span class="p">;</span>
+<span class="k">echo</span> <span class="nv">$wp_ticketsystem</span><span class="o">-&gt;</span><span class="na">filter_content</span><span class="p">(</span> <span class="s1">'{Text} @#{TicketID} {Text}'</span> <span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+
+<h2>
 <a name="verwendete-software" class="anchor" href="#verwendete-software"><span class="octicon octicon-link"></span></a>verwendete Software</h2>
 
 <ul>
@@ -93,9 +101,6 @@
 <p><strong>scheduled</strong></p>
 
 <ul>
-<li><strong>1.0.1</strong></li>
-<li>[BUG] geschriebener Kommentar erst nach reload sichtbar -&gt; Comment-Object vor db-Input erzeugt</li>
-<li>Ticketverlinkung in Blog-Kommentaren</li>
 <li><strong>1.1.0</strong></li>
 <li>E-Mail-Input für angemeldete Nutzer ausblenden</li>
 <li>geschlossene Tickets im Frontend anzeigen</li>
@@ -116,6 +121,12 @@
 <li>Paginator für Ticketliste &amp; Ticketkommentare</li>
 <li><strong>1.6.0</strong></li>
 <li>custom-CSS ermöglichen -&gt; FE-inline-styles entfernen, CSS-Klassen in CSS generieren, vorausfüllen</li>
+</ul><p><strong>1.0.1 beta</strong></p>
+
+<ul>
+<li>[BUG] geschriebener Kommentar erst nach reload sichtbar -&gt; Comment-Object vor db-Input erzeugt</li>
+<li>Ticketverlinkung in Blog-Kommentaren</li>
+<li>Ticketverlinkung in Themes &amp; Plugins (php-Funktion)</li>
 </ul><p><strong>1.0.0 stable</strong></p>
 
 <ul>
@@ -143,7 +154,7 @@
 
 <ul>
 <li><a href="https://github.com/Gummibeer">https://github.com/Gummibeer</a></li>
-<li><a href="https://www.facebook.com/tkwitkowski">https://www.facebook.com/tkwitkowski</a></li>
+<li><a href="https://facebook.com/tkwitkowski">https://facebook.com/tkwitkowski</a></li>
 </ul><h2>
 <a name="copyright-und-lizenz" class="anchor" href="#copyright-und-lizenz"><span class="octicon octicon-link"></span></a>Copyright und Lizenz</h2>
 
