@@ -56,20 +56,25 @@ geplante Funktionen
 **1.1.0**
 + E-Mail-Input für angemeldete Nutzer ausblenden
 + geschlossene Tickets im Frontend anzeigen
+
 **1.2.0**
 + [Bootstrap3](https://github.com/twbs/bootstrap) in Plugin integrieren als Option
 + Spamschutz ([reCaptcha](http://www.google.com/recaptcha)) Option
 + Einstellung Ticket-Formular / Ticket-Kommentare nur für angemeldete Nutzer sichtbar
+
 **1.3.0**
 + Priorität für Tickets festlegen
 + Fortschritt für Ticket angeben -> anhand von Ticketstatus
+
 **1.4.0**
 + Shortcode für Tickettypen mit Beschreibung
+
 **1.5.0**
 + E-Mail-Benachrichtigung bei neuen Tickets / Kommentaren inkl. Einstellung (Admin)
 + E-Mail-Benachrichtigung bei neuen Kommentaren / Statusänderung (Member)
 + Bearbeiter (Wordpress-User) einstellen inkl. E-Mail-Benachrichtigung
 + Paginator für Ticketliste & Ticketkommentare
+
 **1.6.0**
 + custom-CSS ermöglichen -> FE-inline-styles entfernen, CSS-Klassen in CSS generieren, vorausfüllen
 
