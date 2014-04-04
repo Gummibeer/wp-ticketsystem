@@ -53,10 +53,6 @@ verwendete Software
 Changelog
 ------------
 **scheduled**
-+ **1.0.1**
-+ [BUG] geschriebener Kommentar erst nach reload sichtbar -> Comment-Object vor db-Input erzeugt
-+ Ticketverlinkung in Blog-Kommentaren
-+ php-Funktion für Ticketverlinkung bereitstellen
 + **1.1.0**
 + E-Mail-Input für angemeldete Nutzer ausblenden
 + geschlossene Tickets im Frontend anzeigen
@@ -76,6 +72,11 @@ Changelog
 + Paginator für Ticketliste & Ticketkommentare
 + **1.6.0**
 + custom-CSS ermöglichen -> FE-inline-styles entfernen, CSS-Klassen in CSS generieren, vorausfüllen
+
+**1.0.1 beta**
++ [BUG] geschriebener Kommentar erst nach reload sichtbar -> Comment-Object vor db-Input erzeugt
++ Ticketverlinkung in Blog-Kommentaren
++ Ticketverlinkung in Themes & Plugins (php-Funktion)
 
 **1.0.0 stable**
 + eigene Tickettypen erstellen
