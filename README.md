@@ -49,6 +49,7 @@ Changelog
 + **1.0.1**
 + [BUG] geschriebener Kommentar erst nach reload sichtbar -> Comment-Object vor db-Input erzeugt
 + Ticketverlinkung in Blog-Kommentaren
++ php-Funktion für Ticketverlinkung bereitstellen
 + **1.1.0**
 + E-Mail-Input für angemeldete Nutzer ausblenden
 + geschlossene Tickets im Frontend anzeigen
