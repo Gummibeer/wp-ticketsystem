@@ -1415,6 +1415,7 @@ class wp_ticketsystem {
     /* load Content-Filter */
     public function load_filter() {
         add_filter( 'the_content', array( $this, 'filter_content' ) );
+        add_filter( 'get_comment_text', array( $this, 'filter_content' ) );
         add_filter( 'bbp_get_reply_content', array( $this, 'filter_content' ) );
     }
 
@@ -1549,4 +1550,5 @@ class wp_ticketsystem {
 } /* wp_ticketsystem */
 
 /* Plugin initialisieren */
+global $wp_ticketsystem;
 $wp_ticketsystem = new wp_ticketsystem;
