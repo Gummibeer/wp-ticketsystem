@@ -33,7 +33,7 @@ Shortcodes
 ```php
 <?php
 global $wp_ticketsystem;
-echo $wp_ticketsystem->filter_content( 'Hallo @#1 Welt' );
+echo $wp_ticketsystem->filter_content( '{Text} @#{TicketID} {Text}' );
 ?>
 ```
 
