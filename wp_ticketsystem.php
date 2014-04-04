@@ -1130,6 +1130,98 @@ class wp_ticketsystem {
         $sql = strval( 'SELECT * FROM '.$this->table_name.' WHERE id = "'.$ticket_id.'"' );
         $result = $wpdb->get_row( $sql );
 
+        if( get_option($this->plugin_slug.'_show_comments') ) :
+            if( !empty($_POST['wp_ticket']) ) {
+                $wp_ticket = $_POST['wp_ticket'];
+
+                $wp_ticket['name'] = $this->cleanup_data( $wp_ticket['name'], 'text' );
+                $wp_ticket['email'] = $this->cleanup_data( $wp_ticket['email'], 'text' );
+                $wp_ticket['title'] = $this->cleanup_data( $wp_ticket['title'], 'text' );
+                $wp_ticket['content'] = $this->cleanup_data( $wp_ticket['content'], 'text' );
+                $wp_ticket['userid'] = $this->cleanup_data( $current_user->ID, 'int' );
+
+                $wp_ticket['error'] = false;
+                $wp_ticket['out'] = '';
+                $wp_ticket['error_miss'] = array();
+                if( empty($wp_ticket['name']) ) {
+                    $wp_ticket['error'] = true;
+                    array_push($wp_ticket['error_miss'], 'Name');
+                }
+                if( empty($wp_ticket['email']) ) {
+                    $wp_ticket['error'] = true;
+                    array_push($wp_ticket['error_miss'], 'E-Mail');
+                }
+                if( empty($wp_ticket['title']) ) {
+                    $wp_ticket['error'] = true;
+                    array_push($wp_ticket['error_miss'], 'Betreff');
+                }
+                if( empty($wp_ticket['content']) ) {
+                    $wp_ticket['error'] = true;
+                    array_push($wp_ticket['error_miss'], 'Kommentar');
+                }
+                $wp_ticket['error_miss'] = implode( ', ', $wp_ticket['error_miss']);
+                if($wp_ticket['error_miss'] != '') {
+                    $wp_ticket['out'] .=  '<div class="alert alert-danger alert-dismissable">
+                                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                                <strong>Fehler:</strong>
+                                                fehlende Formular-Eingaben: '.$wp_ticket['error_miss'].', prüfe noch einmal deine Eingaben
+                                            </div>';
+                }
+
+                if( !filter_var($wp_ticket['email'], FILTER_VALIDATE_EMAIL) ) {
+                    $wp_ticket['error'] = true;
+                    $wp_ticket['out'] .=  '<div class="alert alert-danger alert-dismissable">
+                                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                                <strong>Fehler:</strong>
+                                                leider hast du keine gültige E-Mail-Adresse eingegeben, prüfe noch einmal deine Eingabe
+                                            </div>';
+                }
+
+                if( !$wp_ticket['error'] ) {
+                    $wp_ticket['success'] = $wpdb->insert(
+                        $this->table_name,
+                        array(
+                            'title' => $wp_ticket['title'],
+                            'content' => $wp_ticket['content'],
+                            'email' => $wp_ticket['email'],
+                            'name' => $wp_ticket['name'],
+                            'parent' => $ticket_id,
+                            'type' => $result->tickettype,
+                            'status' => 0,
+                            'userid' => $wp_ticket['userid'],
+                            'creationdate' => date('Y-m-d H:i:s', (time() + 3600))
+                        ),
+                        array(
+                            '%s',
+                            '%s',
+                            '%s',
+                            '%s',
+                            '%d',
+                            '%d',
+                            '%d',
+                            '%d',
+                            '%s'
+                        )
+                    );
+
+                    if($wp_ticket['success']) {
+                        $wp_ticket['out'] .=  '<div class="alert alert-success alert-dismissable">
+                                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                                <strong>Erfolg:</strong>
+                                                dein Kommentar wurde erfolgreich übermittelt.</a>
+                                            </div>';
+                    } else {
+                        $wp_ticket['out'] .=  '<div class="alert alert-danger alert-dismissable">
+                                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                                <strong>Fehler:</strong>
+                                                leider ist ein Fehler aufgetreten.
+                                            </div>';
+                    }
+                }
+                $out .= $wp_ticket['out'];
+            }
+        endif;
+
         $sql = strval( 'SELECT id FROM '.$this->table_name.' WHERE parent = '.$ticket_id );
         $parents = $wpdb->get_col( $sql );
         $parents = count($parents);
@@ -1167,96 +1259,6 @@ class wp_ticketsystem {
         if( get_option($this->plugin_slug.'_show_comments') ) :
 
         $out .= '<h3>neuen Kommentar schreiben</h3>';
-        if( !empty($_POST['wp_ticket']) ) {
-            $wp_ticket = $_POST['wp_ticket'];
-
-            $wp_ticket['name'] = $this->cleanup_data( $wp_ticket['name'], 'text' );
-            $wp_ticket['email'] = $this->cleanup_data( $wp_ticket['email'], 'text' );
-            $wp_ticket['title'] = $this->cleanup_data( $wp_ticket['title'], 'text' );
-            $wp_ticket['content'] = $this->cleanup_data( $wp_ticket['content'], 'text' );
-            $wp_ticket['userid'] = $this->cleanup_data( $current_user->ID, 'int' );
-
-            $wp_ticket['error'] = false;
-            $wp_ticket['out'] = '';
-            $wp_ticket['error_miss'] = array();
-            if( empty($wp_ticket['name']) ) {
-                $wp_ticket['error'] = true;
-                array_push($wp_ticket['error_miss'], 'Name');
-            }
-            if( empty($wp_ticket['email']) ) {
-                $wp_ticket['error'] = true;
-                array_push($wp_ticket['error_miss'], 'E-Mail');
-            }
-            if( empty($wp_ticket['title']) ) {
-                $wp_ticket['error'] = true;
-                array_push($wp_ticket['error_miss'], 'Betreff');
-            }
-            if( empty($wp_ticket['content']) ) {
-                $wp_ticket['error'] = true;
-                array_push($wp_ticket['error_miss'], 'Kommentar');
-            }
-            $wp_ticket['error_miss'] = implode( ', ', $wp_ticket['error_miss']);
-            if($wp_ticket['error_miss'] != '') {
-                $wp_ticket['out'] .=  '<div class="alert alert-danger alert-dismissable">
-                                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                                <strong>Fehler:</strong>
-                                                fehlende Formular-Eingaben: '.$wp_ticket['error_miss'].', prüfe noch einmal deine Eingaben
-                                            </div>';
-            }
-
-            if( !filter_var($wp_ticket['email'], FILTER_VALIDATE_EMAIL) ) {
-                $wp_ticket['error'] = true;
-                $wp_ticket['out'] .=  '<div class="alert alert-danger alert-dismissable">
-                                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                                <strong>Fehler:</strong>
-                                                leider hast du keine gültige E-Mail-Adresse eingegeben, prüfe noch einmal deine Eingabe
-                                            </div>';
-            }
-
-            if( !$wp_ticket['error'] ) {
-                $wp_ticket['success'] = $wpdb->insert(
-                    $this->table_name,
-                    array(
-                        'title' => $wp_ticket['title'],
-                        'content' => $wp_ticket['content'],
-                        'email' => $wp_ticket['email'],
-                        'name' => $wp_ticket['name'],
-                        'parent' => $ticket_id,
-                        'type' => $result->tickettype,
-                        'status' => 0,
-                        'userid' => $wp_ticket['userid'],
-                        'creationdate' => date('Y-m-d H:i:s', (time() + 3600))
-                    ),
-                    array(
-                        '%s',
-                        '%s',
-                        '%s',
-                        '%s',
-                        '%d',
-                        '%d',
-                        '%d',
-                        '%d',
-                        '%s'
-                    )
-                );
-
-                if($wp_ticket['success']) {
-                    $wp_ticket['out'] .=  '<div class="alert alert-success alert-dismissable">
-                                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                                <strong>Erfolg:</strong>
-                                                dein Kommentar wurde erfolgreich übermittelt.</a>
-                                            </div>';
-                } else {
-                    $wp_ticket['out'] .=  '<div class="alert alert-danger alert-dismissable">
-                                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                                <strong>Fehler:</strong>
-                                                leider ist ein Fehler aufgetreten.
-                                            </div>';
-                }
-            }
-            $out .= $wp_ticket['out'];
-        }
-
         $out .= '<form action="" method="post">';
         $out .= '<div class="form-group">
                         <div class="input-group">
@@ -1413,6 +1415,7 @@ class wp_ticketsystem {
     /* load Content-Filter */
     public function load_filter() {
         add_filter( 'the_content', array( $this, 'filter_content' ) );
+        add_filter( 'get_comment_text', array( $this, 'filter_content' ) );
         add_filter( 'bbp_get_reply_content', array( $this, 'filter_content' ) );
     }
 
@@ -1547,4 +1550,5 @@ class wp_ticketsystem {
 } /* wp_ticketsystem */
 
 /* Plugin initialisieren */
+global $wp_ticketsystem;
 $wp_ticketsystem = new wp_ticketsystem;
