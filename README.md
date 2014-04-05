@@ -32,7 +32,6 @@ Shortcodes
 + **Ticketliste offener Tickets:** `[wp_ticketsystem_list excl="{TypeID}" /]`
 + **Einzelticket:** `[wp_ticketsystem_single /]`
 + **Ticketverlinkung:** `@#{TicketID}` (in Seiten, Blog-Beiträgen, Tickets, Ticket-Kommentaren & bbPress-Foren-Beiträgen)
-```
 
 
 
@@ -43,6 +42,7 @@ php-Funktionen
 <?php
 global $wp_ticketsystem;
 echo $wp_ticketsystem->filter_content( '{Text} @#{TicketID} {Text}' );
+```
 
 
 
