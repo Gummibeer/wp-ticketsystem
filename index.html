@@ -47,6 +47,7 @@
 <ul>
 <li><a href="#installation">Installation</a></li>
 <li><a href="#shortcodes">Shortcodes</a></li>
+<li><a href="#php-funktionen">php-Funktionen</a></li>
 <li><a href="#verwendete-software">verwendete Software</a></li>
 <li><a href="#geplante-funktionen">geplante Funktionen</a></li>
 <li><a href="#changelog">Changelog</a></li>
@@ -79,12 +80,14 @@
 </li>
 <li>
 <strong>Ticketverlinkung:</strong> <code>@#{TicketID}</code> (in Seiten, Blog-Beiträgen, Tickets, Ticket-Kommentaren &amp; bbPress-Foren-Beiträgen)</li>
-<li>
-<strong>Ticketverlinkung</strong> in Themes oder Plugins durch php</li>
-</ul><div class="highlight highlight-php"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+</ul><h2>
+<a name="php-funktionen" class="anchor" href="#php-funktionen"><span class="octicon octicon-link"></span></a>php-Funktionen</h2>
+
+<p><strong>Ticketverlinkung</strong> in Themes oder Plugins</p>
+
+<div class="highlight highlight-php"><pre><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="k">global</span> <span class="nv">$wp_ticketsystem</span><span class="p">;</span>
 <span class="k">echo</span> <span class="nv">$wp_ticketsystem</span><span class="o">-&gt;</span><span class="na">filter_content</span><span class="p">(</span> <span class="s1">'{Text} @#{TicketID} {Text}'</span> <span class="p">);</span>
-<span class="cp">?&gt;</span><span class="x"></span>
 </pre></div>
 
 <h2>
