@@ -37,7 +37,7 @@ Shortcodes
 
 php-Funktionen
 ------------
-+ **Ticketverlinkung** in Themes oder Plugins durch php
+**Ticketverlinkung** in Themes oder Plugins
 ```php
 <?php
 global $wp_ticketsystem;
