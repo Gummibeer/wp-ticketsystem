@@ -75,8 +75,9 @@ geplante Funktionen
 + Bearbeiter (Wordpress-User) einstellen inkl. E-Mail-Benachrichtigung
 + Paginator für Ticketliste & Ticketkommentare
 
-**1.6.0**
+**2.0.0**
 + custom-CSS ermöglichen -> FE-inline-styles entfernen, CSS-Klassen in CSS generieren, vorausfüllen
++ Template-Dateien inkl. Theme-Funktionen / Markern
 
 
 
