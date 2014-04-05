@@ -113,6 +113,7 @@ Autor
 + https://github.com/Gummibeer
 + https://facebook.com/dev.gummibeer
 + https://facebook.com/tkwitkowski
++ https://plus.google.com/101844596511345872985
 + https://plus.google.com/+TomKayWitkowski
 
 
