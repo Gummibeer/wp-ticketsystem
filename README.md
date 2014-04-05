@@ -82,12 +82,12 @@ geplante Funktionen
 
 Changelog
 ------------
-**1.0.1 beta**
+[**1.0.1 beta**](https://github.com/Gummibeer/wp-ticketsystem/releases/tag/v1.0.1-b)
 + [BUG] geschriebener Kommentar erst nach reload sichtbar -> Comment-Object vor db-Input erzeugt
 + Ticketverlinkung in Blog-Kommentaren
 + Ticketverlinkung in Themes & Plugins (php-Funktion)
 
-**1.0.0 stable**
+[**1.0.0 stable**](https://github.com/Gummibeer/wp-ticketsystem/releases/tag/v1.0stable)
 + eigene Tickettypen erstellen
 + Tickettypen an- und abschalten
 + Ticket Sidebar-Widget
