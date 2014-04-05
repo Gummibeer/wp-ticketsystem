@@ -5,6 +5,7 @@ Inhaltsverzeichnis
 ------------
 + [Installation](#installation)
 + [Shortcodes](#shortcodes)
++ [php-Funktionen](#php-funktionen)
 + [verwendete Software](#verwendete-software)
 + [geplante Funktionen](#geplante-funktionen)
 + [Changelog](#changelog)
@@ -31,13 +32,17 @@ Shortcodes
 + **Ticketliste offener Tickets:** `[wp_ticketsystem_list excl="{TypeID}" /]`
 + **Einzelticket:** `[wp_ticketsystem_single /]`
 + **Ticketverlinkung:** `@#{TicketID}` (in Seiten, Blog-Beiträgen, Tickets, Ticket-Kommentaren & bbPress-Foren-Beiträgen)
+```
+
+
+
+php-Funktionen
+------------
 + **Ticketverlinkung** in Themes oder Plugins durch php
 ```php
 <?php
 global $wp_ticketsystem;
 echo $wp_ticketsystem->filter_content( '{Text} @#{TicketID} {Text}' );
-?>
-```
 
 
 
