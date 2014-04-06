@@ -58,9 +58,13 @@ verwendete Software
 
 geplante Funktionen
 ------------
+**1.0.2**
++ [BUG] Ticketlinks an Permalinkstruktur anpassen
+
 **1.1.0**
 + E-Mail-Input für angemeldete Nutzer ausblenden
 + geschlossene Tickets im Frontend anzeigen
++ Ticketautor auf Buddypress-Profil verlinken - falls existent
 
 **1.2.0**
 + [Bootstrap3](https://github.com/twbs/bootstrap) in Plugin integrieren als Option
