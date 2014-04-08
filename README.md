@@ -58,9 +58,6 @@ verwendete Software
 
 geplante Funktionen
 ------------
-**1.0.2**
-+ [BUG] Ticketlinks an Permalinkstruktur anpassen
-
 **1.1.0**
 + E-Mail-Input für angemeldete Nutzer ausblenden
 + geschlossene Tickets im Frontend anzeigen
@@ -92,6 +89,9 @@ geplante Funktionen
 
 Changelog
 ------------
+[**1.0.2 beta**](https://github.com/Gummibeer/wp-ticketsystem/releases/tag/v1.0.2-b)
++ [BUG] Ticketlinks an Permalinkstruktur anpassen
+
 [**1.0.1 beta**](https://github.com/Gummibeer/wp-ticketsystem/releases/tag/v1.0.1-b)
 + [BUG] geschriebener Kommentar erst nach reload sichtbar -> Comment-Object vor db-Input erzeugt
 + Ticketverlinkung in Blog-Kommentaren
