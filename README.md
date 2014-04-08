@@ -62,6 +62,20 @@ geplante Funktionen
 + E-Mail-Input für angemeldete Nutzer ausblenden
 + geschlossene Tickets im Frontend anzeigen
 + Ticketautor auf Buddypress-Profil verlinken - falls existent
++ IP-Adresse speichern
+```php
+<?php
+function getRealIpAddr() {
+  if( !empty($_SERVER['HTTP_CLIENT_IP']) ) {
+    $ip = $_SERVER['HTTP_CLIENT_IP'];
+  } elseif( !empty($_SERVER['HTTP_X_FORWARDED_FOR']) ) {
+    $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+  } else {
+    $ip = $_SERVER['REMOTE_ADDR'];
+  }
+  return $ip;
+}
+```
 
 **1.2.0**
 + [Bootstrap3](https://github.com/twbs/bootstrap) in Plugin integrieren als Option
