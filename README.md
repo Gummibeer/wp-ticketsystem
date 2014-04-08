@@ -78,21 +78,22 @@ function get_ip_address() {
 ```
 
 **1.2.0**
-+ [Bootstrap3](https://github.com/twbs/bootstrap) in Plugin integrieren als Option
++ Priorität für Tickets festlegen
++ Fortschritt für Ticket angeben -> anhand von Ticketstatus
++ Bearbeiter (Wordpress-User) einstellen inkl. E-Mail-Benachrichtigung
+
+**1.3.0**
 + Spamschutz ([reCaptcha](http://www.google.com/recaptcha)) Option
 + Einstellung Ticket-Formular / Ticket-Kommentare nur für angemeldete Nutzer sichtbar
 
 **1.3.0**
-+ Priorität für Tickets festlegen
-+ Fortschritt für Ticket angeben -> anhand von Ticketstatus
-
-**1.4.0**
++ [Bootstrap3](https://github.com/twbs/bootstrap) in Plugin integrieren als Option
++ Ticketsuche ermöglichen
 + Shortcode für Tickettypen mit Beschreibung
 
-**1.5.0**
+**1.4.0**
 + E-Mail-Benachrichtigung bei neuen Tickets / Kommentaren inkl. Einstellung (Admin)
 + E-Mail-Benachrichtigung bei neuen Kommentaren / Statusänderung (Member)
-+ Bearbeiter (Wordpress-User) einstellen inkl. E-Mail-Benachrichtigung
 + Paginator für Ticketliste & Ticketkommentare
 
 **2.0.0**
