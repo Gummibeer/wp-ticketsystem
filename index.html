@@ -108,28 +108,43 @@
 <li>E-Mail-Input für angemeldete Nutzer ausblenden</li>
 <li>geschlossene Tickets im Frontend anzeigen</li>
 <li>Ticketautor auf Buddypress-Profil verlinken - falls existent</li>
-</ul><p><strong>1.2.0</strong></p>
+<li>IP-Adresse speichern</li>
+</ul><div class="highlight highlight-php"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="k">function</span> <span class="nf">get_ip_address</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span> <span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">'HTTP_CLIENT_IP'</span><span class="p">])</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$ip</span> <span class="o">=</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">'HTTP_CLIENT_IP'</span><span class="p">];</span>
+  <span class="p">}</span> <span class="k">elseif</span><span class="p">(</span> <span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">'HTTP_X_FORWARDED_FOR'</span><span class="p">])</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$ip</span> <span class="o">=</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">'HTTP_X_FORWARDED_FOR'</span><span class="p">];</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nv">$ip</span> <span class="o">=</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">'REMOTE_ADDR'</span><span class="p">];</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nv">$ip</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<p><strong>1.2.0</strong></p>
 
 <ul>
-<li>
-<a href="https://github.com/twbs/bootstrap">Bootstrap3</a> in Plugin integrieren als Option</li>
+<li>Priorität für Tickets festlegen</li>
+<li>Fortschritt für Ticket angeben -&gt; anhand von Ticketstatus</li>
+<li>Bearbeiter (Wordpress-User) einstellen inkl. E-Mail-Benachrichtigung</li>
+</ul><p><strong>1.3.0</strong></p>
+
+<ul>
 <li>Spamschutz (<a href="http://www.google.com/recaptcha">reCaptcha</a>) Option</li>
 <li>Einstellung Ticket-Formular / Ticket-Kommentare nur für angemeldete Nutzer sichtbar</li>
 </ul><p><strong>1.3.0</strong></p>
 
 <ul>
-<li>Priorität für Tickets festlegen</li>
-<li>Fortschritt für Ticket angeben -&gt; anhand von Ticketstatus</li>
-</ul><p><strong>1.4.0</strong></p>
-
-<ul>
+<li>
+<a href="https://github.com/twbs/bootstrap">Bootstrap3</a> in Plugin integrieren als Option</li>
+<li>Ticketsuche ermöglichen</li>
 <li>Shortcode für Tickettypen mit Beschreibung</li>
-</ul><p><strong>1.5.0</strong></p>
+</ul><p><strong>1.4.0</strong></p>
 
 <ul>
 <li>E-Mail-Benachrichtigung bei neuen Tickets / Kommentaren inkl. Einstellung (Admin)</li>
 <li>E-Mail-Benachrichtigung bei neuen Kommentaren / Statusänderung (Member)</li>
-<li>Bearbeiter (Wordpress-User) einstellen inkl. E-Mail-Benachrichtigung</li>
 <li>Paginator für Ticketliste &amp; Ticketkommentare</li>
 </ul><p><strong>2.0.0</strong></p>
 
