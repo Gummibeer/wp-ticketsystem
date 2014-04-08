@@ -65,7 +65,7 @@ geplante Funktionen
 + IP-Adresse speichern
 ```php
 <?php
-function getRealIpAddr() {
+function get_ip_address() {
   if( !empty($_SERVER['HTTP_CLIENT_IP']) ) {
     $ip = $_SERVER['HTTP_CLIENT_IP'];
   } elseif( !empty($_SERVER['HTTP_X_FORWARDED_FOR']) ) {
