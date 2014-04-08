@@ -890,9 +890,35 @@ class wp_ticketsystem {
 
     /* load Shortcodes */
     public function load_shortcodes() {
+        add_filter( 'rewrite_rules_array', array( $this, 'create_rewrite_rules_tickets' ) );
+        add_filter( 'query_vars', array( $this, 'register_query_vars_tickets' ) );
+        add_action( 'init', array( $this, 'flush_rewrite_rules' ) );
+
         add_shortcode( $this->plugin_slug.'_form', array( $this, 'display_ticket_form' ) );
         add_shortcode( $this->plugin_slug.'_list', array( $this, 'display_ticket_list' ) );
         add_shortcode( $this->plugin_slug.'_single', array( $this, 'display_ticket_single' ) );
+    }
+
+    function create_rewrite_rules_tickets( $rules ) {
+        $ticket_page_id = get_option ( 'wp_ticketsystem_single_page' );
+        $ticket_page = get_post( $ticket_page_id );
+        $own_rules = array();
+        if( is_object($ticket_page) ) {
+            $ticket_page_slug = $ticket_page->post_name;
+            preg_match( '/\/ticket\/(\d+)\/?$/i', $_SERVER['REQUEST_URI'], $matches );
+            $own_rules[$ticket_page_slug.'/ticket/(\d+)/?$'] = 'index.php?pagename='.$ticket_page_slug.'&ticket='.$matches[1];
+	    }
+        return $own_rules + $rules;
+    }
+
+    function register_query_vars_tickets( $vars ) {
+        array_push( $vars, 'ticket' );
+        return $vars;
+    }
+
+    function flush_rewrite_rules() {
+        global $wp_rewrite;
+        $wp_rewrite->flush_rules();
     }
 
     public function display_ticket_form( $atts ) {
@@ -923,6 +949,8 @@ class wp_ticketsystem {
             $wp_ticket['error'] = false;
             $wp_ticket['out'] = '';
             $wp_ticket['error_miss'] = array();
+
+            /* if is logedin */
             if( empty($wp_ticket['name']) ) {
                 $wp_ticket['error'] = true;
                 array_push($wp_ticket['error_miss'], 'Name');
@@ -931,6 +959,8 @@ class wp_ticketsystem {
                 $wp_ticket['error'] = true;
                 array_push($wp_ticket['error_miss'], 'E-Mail');
             }
+            /* if is logedin */
+
             if( empty($wp_ticket['type']) && $wp_ticket['type'] != 0 ) {
                 $wp_ticket['error'] = true;
                 array_push($wp_ticket['error_miss'], 'Ticket-Typ');
@@ -1001,6 +1031,8 @@ class wp_ticketsystem {
 
 
         $out .= '<form action="" method="post">';
+
+        /* if is logedin */
         $out .= '<div class="form-group">
                         <div class="input-group">
                             <label class="input-group-addon" for="name">Name</label>
@@ -1013,6 +1045,8 @@ class wp_ticketsystem {
                             <input type="text" class="form-control" name="wp_ticket[email]" id="email" value="'.$current_user->user_email.'" />
                         </div>
                     </div>';
+        /* if is logedin */
+
         $out .= '<div class="form-group">
                     <div class="input-group">
                         <label class="input-group-addon" for="type">Typ</label>
@@ -1102,11 +1136,14 @@ class wp_ticketsystem {
 
             $label_temp = '<span class="label label-tickettype type-'.$types[$result->type]['slug'].'" style="background:'.$types[$result->type]['color'].'"><i class="'.$types[$result->type]['icon'].'"></i> '.$types[$result->type]['name'].'</span>';
 
+            $link_temp = get_page_link( get_option('wp_ticketsystem_single_page') );
+            $link_temp = stripos( $link_temp, '?' ) === false ? $link_temp.'/ticket/'.$result->id : $link_temp.'&ticket='.$result->id;
+
             $out .= '<tr id="ticket-'.$result->id.'">
                         <td>#'.$result->id.'</td>
                         <td>'.$label_temp.'</td>
                         <td>'.$this->predef_ticketstatus[$result->status].'</td>
-                        <td><a href="'.get_page_link( get_option('wp_ticketsystem_single_page') ).'&ticket='.$result->id.'" title="zum Ticket"><strong>'.$result->title.'</strong></a>'
+                        <td><a href="'.$link_temp.'" title="zum Ticket"><strong>'.$result->title.'</strong></a>'
                         .'<br />'.
                         $this->shorten_string( $result->content ).'</td>
                         <td>'.date('d.m.Y', strtotime($result->creationdate)).'</td>
@@ -1126,6 +1163,10 @@ class wp_ticketsystem {
         get_currentuserinfo();
 
         $ticket_id = $this->cleanup_data( $_GET['ticket'], 'int' );
+        if( $ticket_id == 0 ) {
+            preg_match( '/\/ticket\/(\d+)\/?$/i', $_SERVER['REQUEST_URI'], $matches );
+            $ticket_id = $matches[1] * 1;
+        }
 
         $sql = strval( 'SELECT * FROM '.$this->table_name.' WHERE id = "'.$ticket_id.'"' );
         $result = $wpdb->get_row( $sql );
