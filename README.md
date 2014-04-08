@@ -93,7 +93,7 @@ Changelog
 + [BUG] Ticketlinks an Permalinkstruktur anpassen
 
 [**1.0.1 beta**](https://github.com/Gummibeer/wp-ticketsystem/releases/tag/v1.0.1-b)
-+ [BUG] geschriebener Kommentar erst nach reload sichtbar -> Comment-Object vor db-Input erzeugt
++ [BUG] geschriebener Kommentar erst nach reload sichtbar
 + Ticketverlinkung in Blog-Kommentaren
 + Ticketverlinkung in Themes & Plugins (php-Funktion)
 
