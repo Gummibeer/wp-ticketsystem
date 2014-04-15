@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Wordpress Ticketsystem
  * Description: Ticketsystem für Bug-Tracking und Anforderungsverwaltung.
- * Version: 1.0
+ * Version: 1.0.2
  * Author: Tom Witkowski <tomwitkowski@ymail.com>
  * Author URI: http://gummibeer.github.io/wp-ticketsystem
  * License: GPL2
@@ -40,7 +40,7 @@ class wp_ticketsystem {
 
         $this->plugin_name = 'Ticketsystem';
         $this->plugin_slug = 'wp_ticketsystem';
-        $this->plugin_version = '1.0';
+        $this->plugin_version = '1.0.2';
 
         $this->wp_basepath = ABSPATH;
         $this->plugin_file = __FILE__;
